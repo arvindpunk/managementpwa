@@ -32,7 +32,7 @@
     currUrl = 'https://hospital-waste-management-app.herokuapp.com/'
     axios({
       method: 'get',
-      url: currUrl + 'user/score',
+      url: currUrl + 'api/test/helloworld',
       crossdomain: true,
       withCredentials: true
     })
