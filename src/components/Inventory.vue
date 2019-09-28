@@ -1,6 +1,8 @@
 <template>
   <v-content>
-    <h1>Inventory</h1>
+    <div class="pa-3">
+      <h1>Inventory - Work In Progress</h1>
+    </div>
   </v-content>
 </template>
 

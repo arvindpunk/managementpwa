@@ -4,11 +4,14 @@ import Login from './components/Login'
 import Bin from './components/Bin'
 import Staff from './components/Staff'
 import Inventory from './components/Inventory'
+import axios from 'axios'
+import VueSesssion from 'vue-session'
 
 Vue.use(Router)
+Vue.use(VueSesssion)
 
 const router = new Router({
-  mode: 'history',
+  mode: 'hash',
   base: process.env.BASE_URL,
   routes: [
     {
@@ -30,12 +33,15 @@ const router = new Router({
   ]
 })
 
-router.beforeEach((to, from, next) => {
-  console.log(from);
-  console.log(to);
-  if (to === from) next(false);
-  else next();
-})
+// router.beforeEach((to, from, next) => {
+//   console.log(from);
+//   console.log(to);
+//   if (to === from) next(false);
+//   else next();
+// })
+
+// router.replace('/');
+
 
 export default router
 

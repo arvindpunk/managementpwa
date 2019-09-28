@@ -1,12 +1,23 @@
 <template>
-  <v-content>
+  <v-content class="ma-3">
+    <v-card>
+      <v-card-title>Staff Information</v-card-title>
+    <v-text-field class="ma-3"
+        v-model="search"
+        append-icon="mdi-magnify"
+        label="Search"
+        single-line
+        hide-details
+    ></v-text-field>
     <v-data-table
     :headers="headers"
     :items="items"
+    :search="search"
     class="elevation-1"
     >
 
     </v-data-table>
+  </v-card>
   </v-content>
 </template>
 
@@ -16,58 +27,48 @@
   props: {
     source: String,
   },
-  created () {
-    this.initialize()
+  mounted () {
+    let currUrl = ''
+    currUrl = 'https://hospital-waste-management-app.herokuapp.com/'
+    axios({
+      method: 'get',
+      url: currUrl + 'user/score',
+      crossdomain: true
+    })
+    .then(response => {
+      console.log('RESPONSE: ' + response.data);
+    })
+    .catch(error => {
+      console.log('ERROR: ' + error);
+    });
   },
   data: () => ({
     drawer: null,
     headers: [
       { 
-        text: "Bin ID",
-        value: "binID" 
+        text: "Staff ID",
+        value: "staffid" ,
+        align: 'left'
       },
-      {   text: "Location",
-        value: "location"
+      { 
+        text: "Awareness Score",
+        value: "score"
       }
     ],
     items: [
     {
-      binID: "a6g23gsd",
-      location: "FF-13",
-      history: [
-        {
-          content: "Syringe",
-          contentType: "Reusable",
-          timestamp: "28 Sep 2018 20:55:42"
-        }
-      ]
+      staffid: "Wenxuan",
+      score: "101"
+    },
+    {
+      staffid: "Utkarsh",
+      score: "70"
+    },
+    {
+      staffid: "Wintersea",
+      score: "95"
     }
     ]
-  }),
-  methods: {
-      initialize () {
-        axios.post('https://hospital-waste-management-app.herokuapp.com/login',
-          {
-            username: "adminusername",
-            password: "adminpassword"
-        })
-        .then(response => {
-          console.log(response);
-        })
-        .catch(error => {
-          console.log(error);
-        });
-
-
-        // axios.get('https://hospital-waste-management-app.herokuapp.com/admin/user/all-scores-sorted')
-        // .then(response => {
-        //   console.log(response);
-        // })
-        // .catch(error => {
-        //   console.log(error);
-        // });
-
-      }
-    }
+  })
   }
 </script>
