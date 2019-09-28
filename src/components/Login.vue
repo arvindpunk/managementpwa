@@ -83,7 +83,7 @@
           url: currUrl + 'login',
           data: formData,
           crossdomain: true,
-          withCredentials: true
+          withCredentials: true 
         })
         .then(response => {
           console.log(response.data);
