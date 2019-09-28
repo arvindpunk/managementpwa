@@ -33,7 +33,8 @@
     axios({
       method: 'get',
       url: currUrl + 'user/score',
-      crossdomain: true
+      crossdomain: true,
+      withCredentials: true
     })
     .then(response => {
       console.log('RESPONSE: ' + response.data);
