@@ -19,10 +19,16 @@
                 dark
                 flat
               >
-                <v-toolbar-title>Management</v-toolbar-title>
+                <v-toolbar-title>Sign In</v-toolbar-title>
                 
                
               </v-toolbar>
+              <v-row
+              align="center"
+              justify="center"
+              >
+                <v-img src="../assets/textsmall.png" :max-height=256 :max-width=256></v-img>
+              </v-row>
               <v-card-text>
                 <v-form>
                   <v-text-field
@@ -69,8 +75,6 @@
     }),
     methods: {
       tryLogin: function() {
-        console.log(this.user);
-        console.log(this.pass);
 
         let formData = new FormData();
         formData.set('username', this.user);
@@ -86,38 +90,17 @@
           withCredentials: true 
         })
         .then(response => {
-          console.log(response.data);
-          console.log(response.headers);
-          console.log(response.statusText);
-          // console.log(response.headers['set-cookie']);
-          console.log(response.config);
-          // if (response.status === 200 && 'token' in response.data) {
-          //   this.$session.start()
-          //   this.$session.set('jwt', response.body.token)
-          //   Vue.http.headers.common['Authorization'] = 'Bearer ' + response.body.token
-          this.$router.push('/staff');
-          //   //disable login
-          // }
+          if (response.status === 200 || response.status === 201) {
+            this.$emit('loginSuccesful');
+            this.$router.push('/bin');
+          }
+          // disable login
         })
         .catch(error => {
           console.log('ERROR: ' + error);
+          this.$emit('loginFailed');
           //Show login error message here in UI
         })
-
-        // request.post(currUrl + 'login', 
-        //   {
-        //     form: {
-        //       username: this.user,
-        //       password: this.pass
-        //     }
-        //   }, (error, res, body) => {
-        //     if (error) {
-        //       console.error(error)
-        //       return
-        //     }
-        //     console.log('statusCode: ${res.statusCode}')
-        //     console.log(body)
-        //   });
       }
     }
   }

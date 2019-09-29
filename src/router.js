@@ -6,9 +6,11 @@ import Staff from './components/Staff'
 import Inventory from './components/Inventory'
 import axios from 'axios'
 import VueSesssion from 'vue-session'
+import VueCookies from 'vue-cookies'
 
 Vue.use(Router)
 Vue.use(VueSesssion)
+Vue.use(VueCookies)
 
 const router = new Router({
   mode: 'hash',

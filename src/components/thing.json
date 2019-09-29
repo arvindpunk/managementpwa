@@ -1,0 +1,45 @@
+{
+  "msg": "",
+  "data": [
+    {
+      "warningType": "WRONG_BIN",
+      "field1": {
+        "id": 1,
+        "timestamp": "1569749048",
+        "deviceId": 1,
+        "userId": 6,
+        "txType": "WASTE_GENERIC",
+        "isWrong": true,
+        "item": "Plastic Bottle"
+      },
+      "field2": {
+        "id": 6,
+        "name": "Chua Cheng Hong",
+        "email": "chenghong@gmail.com",
+        "password": "$2a$10$dFwheAPKY/A80gkYE7IcU.RFedVOrDr6v1.fzSmKM7N08lEnPLmmC",
+        "username": "cch",
+        "score": 100,
+        "idQrUrl": "https://hospital-waste-management-db.s3-ap-southeast-1.amazonaws.com/user/id-qr/cch.jpg"
+      }
+    },
+    {
+      "warningType": "SUD_NOT_DISPOSED",
+      "field1": {
+        "id": 6,
+        "dispensedTime": "1569748987",
+        "disposedTime": null,
+        "equipmentId": 5,
+        "userId": 6
+      },
+      "field2": {
+        "id": 6,
+        "name": "Chua Cheng Hong",
+        "email": "chenghong@gmail.com",
+        "password": "$2a$10$dFwheAPKY/A80gkYE7IcU.RFedVOrDr6v1.fzSmKM7N08lEnPLmmC",
+        "username": "cch",
+        "score": 100,
+        "idQrUrl": "https://hospital-waste-management-db.s3-ap-southeast-1.amazonaws.com/user/id-qr/cch.jpg"
+      }
+    }
+  ]
+}
