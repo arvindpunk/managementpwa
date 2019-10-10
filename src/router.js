@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Home from './views/Home'
+import Dashboard from './components/Dashboard'
 import Login from './components/Login'
 import Bin from './components/Bin'
 import Staff from './components/Staff'
@@ -18,7 +20,7 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      component: Login
+      component: Home
     },
     {
       path: '/bin',
@@ -31,6 +33,10 @@ const router = new Router({
     {
       path: '/inventory',
       component: Inventory
+    },
+    {
+      path: '/dashboard',
+      component: Dashboard
     },
   ]
 })

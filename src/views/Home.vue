@@ -1,17 +1,12 @@
 <template>
-	<v-content>
-		<!-- <Dashboard /> -->
-		<Login />
-	</v-content>
+	<Login />
 </template>
 
 <script>
-import Dashboard from '../components/Dashboard';
 import Login from '../components/Login';
 
 export default {
   components: {
-    Dashboard,
     Login,
   },
 };

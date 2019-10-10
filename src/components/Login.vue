@@ -19,16 +19,16 @@
                 dark
                 flat
               >
-                <v-toolbar-title>Sign In</v-toolbar-title>
+                <v-toolbar-title>Smart Food Distribution</v-toolbar-title>
                 
                
               </v-toolbar>
-              <v-row
+              <!-- <v-row
               align="center"
               justify="center"
-              >
-                <v-img src="../assets/textsmall.png" :max-height=256 :max-width=256></v-img>
-              </v-row>
+              > -->
+                <!-- <v-img src="../assets/textsmall.png" :max-height=256 :max-width=256></v-img> -->
+              <!-- </v-row> -->
               <v-card-text>
                 <v-form>
                   <v-text-field
@@ -75,32 +75,36 @@
     }),
     methods: {
       tryLogin: function() {
+        // console.log(user)
+        // console.log(pass)
+        if (this.user == 'admin' && this.pass == 'password') {
+          this.$router.push('/dashboard')
+        }
+        // let formData = new FormData();
+        // formData.set('username', this.user);
+        // formData.set('password', this.pass);
 
-        let formData = new FormData();
-        formData.set('username', this.user);
-        formData.set('password', this.pass);
-
-        let currUrl = ''
-        currUrl = 'https://hospital-waste-management-app.herokuapp.com/'
-        axios({
-          method: 'post',
-          url: currUrl + 'login',
-          data: formData,
-          crossdomain: true,
-          withCredentials: true 
-        })
-        .then(response => {
-          if (response.status === 200 || response.status === 201) {
-            this.$emit('loginSuccesful');
-            this.$router.push('/bin');
-          }
-          // disable login
-        })
-        .catch(error => {
-          console.log('ERROR: ' + error);
-          this.$emit('loginFailed');
-          //Show login error message here in UI
-        })
+        // let currUrl = ''
+        // currUrl = 'https://hospital-waste-management-app.herokuapp.com/'
+        // axios({
+        //   method: 'post',
+        //   url: currUrl + 'login',
+        //   data: formData,
+        //   crossdomain: true,
+        //   withCredentials: true 
+        // })
+        // .then(response => {
+        //   if (response.status === 200 || response.status === 201) {
+        //     this.$emit('loginSuccesful');
+        //     this.$router.push('/bin');
+        //   }
+        //   // disable login
+        // })
+        // .catch(error => {
+        //   console.log('ERROR: ' + error);
+        //   this.$emit('loginFailed');
+        //   //Show login error message here in UI
+        // })
       }
     }
   }
