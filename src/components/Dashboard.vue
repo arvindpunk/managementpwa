@@ -2,8 +2,30 @@
   <v-content>
     <v-tabs fixed-tabs v-model='tab'>
     <v-tab>Request</v-tab>
-    <v-tab>Robot</v-tab>
+    <v-tab>Activity Tracker</v-tab>
+    <v-tab-item>
+      <v-row>
+        <v-col align="center" justify="center">
+        <v-time-picker color="indigo" v-model="picker"></v-time-picker>
+        </v-col>
+      </v-row>
+    </v-tab-item>
+    <v-tab-item>
+      <v-row>
+        <v-col justify="center">
+        <v-timeline>
+          <v-timeline-item color="green lighten-2">Robot informed!</v-timeline-item>
+          <v-timeline-item class="text-right" small>Robot traversing...</v-timeline-item>
+          <v-timeline-item small>Reaching restaurant.</v-timeline-item>
+          <v-timeline-item class="text-right" small>Drop-off.</v-timeline-item>
+          <v-timeline-item small>NGO arrived.</v-timeline-item>
+          <v-timeline-item class="text-right" small>Food picked up!</v-timeline-item>
+        </v-timeline>
+      </v-col>
+      </v-row>
+    </v-tab-item>
   </v-tabs>
+  
   </v-content>
 </template>
 
@@ -20,7 +42,8 @@
       drawer: null,
       user: null,
       pass: null,
-      tab: null
+      tab: null,
+      picker: null,
     }),
     methods: {
       tryLogin: function() {
